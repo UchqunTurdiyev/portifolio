@@ -1,29 +1,28 @@
-import Footer from '@/layout/footer/footer';
-import Header from '@/layout/header/header';
-import { Inter } from 'next/font/google';
-import { getAbout, getPosts } from '@/server/incex';
-import { Text } from '@chakra-ui/react';
+import { Karla } from 'next/font/google';
+import { getAbout, getContent, getPosts, getScills, getServices } from '@/server/incex';
+import { Box } from '@chakra-ui/react';
+import { withLayout } from '@/layout/layout';
+import { Main } from '@/components';
 
-const inter = Inter({ subsets: ['latin'] });
+const karla = Karla({ subsets: ['latin'], weight: '300' });
 
-export default function Home({ hero, about }) {
-	console.log(about);
+function Home({ hero, about, scills, services, content }) {
 	return (
-		<>
-			<Header />
-			{hero.map(item => (
-				<Text key={item.node.id}>{item.node.title}</Text>
-			))}
-			<Footer />
-		</>
+		<Box className={karla.className}>
+			<Main hero={hero} about={about} />
+		</Box>
 	);
 }
+export default withLayout(Home);
 
 export async function getStaticProps() {
 	const hero = (await getPosts()) || [];
 	const about = (await getAbout()) || [];
+	const scills = (await getScills()) || [];
+	const services = (await getServices()) || [];
+	const content = (await getContent()) || [];
 
 	return {
-		props: { hero, about },
+		props: { hero, about, scills, services, content },
 	};
 }

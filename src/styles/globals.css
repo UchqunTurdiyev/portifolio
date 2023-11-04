@@ -1,3 +1,62 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* @import url('https://fonts.googleapis.com/css2?family=Kalam:wght@400&display=swap'); */
+
+/* @import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap');
+
+
+.scrol {
+	animation: scrol_text 1s linear infinite;
+}
+
+@keyframes scrol_text {
+	0% {
+		-webkit-transform: translateY(0) rotate(90deg);
+		transform: translateY(0) rotate(90deg);
+	}
+	50% {
+		-webkit-transform: translateY(30px) rotate(90deg);
+		transform: translateY(30px) rotate(90deg);
+	}
+	25% {
+		-webkit-transform: translateY(15px) rotate(90deg);
+		transform: translateY(15px) rotate(90deg);
+	}
+	100% {
+		-webkit-transform: translateY(0) rotate(90deg);
+		transform: translateY(0) rotate(90deg);
+	}
+}
+
+.btn_hero {
+	position: relative;
+	overflow: hidden;
+	z-index: 999;
+}
+
+.btn_con {
+	width: 280px;
+	height: 280px;
+	border-radius: 50%;
+	background-color: #36f1d554;
+	position: absolute;
+	top: -400px;
+	left: -300px;
+	transition: 0.5s ease;
+}
+.btn_hero:hover .btn_con {
+	/* transform: translateY(0); */
+	contain: 'Contact me';
+	position: absolute;
+	top: -60px;
+	left: -70px;
+}
+
+/* Kaushan Script,cursive */
+
+.bgText {
+	font-family: 'Dancing Script', cursive;
+}

@@ -1,14 +1,14 @@
 import React from 'react';
 import Header from './header/header';
-import Footer from './footer/footer';
 import { Box } from '@chakra-ui/react';
 
-export default function Layout() {
+export default function Layout({ children }) {
 	return (
 		<Box>
 			<Header />
-			<Box>{children}</Box>
-			<Footer />
+			<Box pt={'4'} bg={'#000'}>
+				{children}
+			</Box>
 		</Box>
 	);
 }

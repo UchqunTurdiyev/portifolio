@@ -53,3 +53,68 @@ export const getAbout = async () => {
 	const result = await request(graphqlAPI, query);
 	return result.aboutsConnection.edges;
 };
+
+export const getScills = async () => {
+	const query = gql`
+		query Assets {
+			scillsConnection {
+				edges {
+					node {
+						createdAt
+						dataTime
+						id
+						slug
+						title
+						img {
+							url
+						}
+					}
+				}
+			}
+		}
+	`;
+	const result = await request(graphqlAPI, query);
+	return result.scillsConnection.edges;
+};
+
+export const getServices = async () => {
+	const query = gql`
+		query Assets {
+			servicesConnection {
+				edges {
+					node {
+						desc
+						id
+						title
+					}
+				}
+			}
+		}
+	`;
+	const result = await request(graphqlAPI, query);
+	return result.servicesConnection.edges;
+};
+
+export const getContent = async () => {
+	const query = gql`
+		query Assets {
+			contentsConnection {
+				edges {
+					node {
+						bio
+						data
+						id
+						img {
+							url
+						}
+						slug
+						title
+					}
+				}
+			}
+		}
+	`;
+
+	const result = await request(graphqlAPI, query);
+	return result.contentsConnection.edges;
+};
