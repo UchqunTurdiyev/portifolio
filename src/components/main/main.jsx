@@ -7,7 +7,7 @@ import Services from '@/pages/services';
 import Footer from '@/layout/footer/footer';
 import Navbar from '../sidebarRight/navbar';
 
-export default function Main({ hero, about }) {
+export default function Main({ hero, about, scills }) {
 	const bg = {
 		html: '<html>',
 		body: '<body>',
@@ -24,13 +24,14 @@ export default function Main({ hero, about }) {
 		card: '<Card>',
 		cardClose: '<Card />',
 	};
+
 	return (
 		<Box pl={36}>
 			{hero.map(item => (
 				<Hero key={item.node.id} {...bg} item={item.node} />
 			))}
 			{about.map(item => (
-				<About key={item.node.id} {...bg} item={item.node} />
+				<About key={item.node.id} {...bg} item={item.node} scills={scills} />
 			))}
 			<Contact />
 			<Portifolio />

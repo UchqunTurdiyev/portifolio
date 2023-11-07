@@ -9,7 +9,7 @@ const karla = Karla({ subsets: ['latin'], weight: '300' });
 function Home({ hero, about, scills, services, content }) {
 	return (
 		<Box className={karla.className}>
-			<Main hero={hero} about={about} />
+			<Main hero={hero} about={about} scills={scills} />
 		</Box>
 	);
 }

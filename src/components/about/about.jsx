@@ -1,11 +1,13 @@
 import { Box, Divider, Flex, HStack, Heading, Image, Text } from '@chakra-ui/react';
 import React from 'react';
 import { Dancing_Script } from 'next/font/google';
+import Scills from './scills';
+import Link from 'next/link';
 
 const dancing = Dancing_Script({ subsets: ['latin'], weight: '700' }); // Call the font loader and assign it to a constant
 
 export default function About(props) {
-	const { header, headerClose, flex, flexClose, card, cardClose, item } = props;
+	const { header, headerClose, flex, flexClose, card, cardClose, item, scills } = props;
 	// 09f7d3
 	return (
 		<Box py={4}>
@@ -18,10 +20,10 @@ export default function About(props) {
 			<Text className={dancing.className} textColor={'#626060'} fontWeight={'semibold'} fontSize={'lg'} pl={4} pt={2}>
 				{headerClose}
 			</Text>
-			<Text className={dancing.className} textColor={'#626060'} fontWeight={'semibold'} fontSize={'lg'} pl={4} pt={2}>
+			<Text className={dancing.className} textColor={'#626060'} fontWeight={'semibold'} fontSize={'lg'} pl={12} pt={2}>
 				{flex}
 			</Text>
-			<Flex gap={5} pl={20}>
+			<Flex gap={5} pl={20} py={4}>
 				<Box w={'600px'} h={'450'}>
 					<Image w={'full'} height={'full'} objectFit={'cover'} src={item.photo.url} alt={item.name} />
 				</Box>
@@ -62,7 +64,7 @@ export default function About(props) {
 					</Box>
 				</Box>
 			</Flex>
-			<Text className={dancing.className} textColor={'#626060'} fontWeight={'semibold'} fontSize={'lg'} pl={4} pt={2}>
+			<Text className={dancing.className} textColor={'#626060'} fontWeight={'semibold'} fontSize={'lg'} pl={12} pt={2}>
 				{flexClose}
 			</Text>
 
@@ -70,14 +72,23 @@ export default function About(props) {
 			<Text className={dancing.className} textColor={'#626060'} fontWeight={'semibold'} fontSize={'lg'} pl={4} pt={2}>
 				{header}
 			</Text>
-
+			<Heading pl={10} color={'#09f7d3'}>
+				My Scills
+			</Heading>
 			<Text className={dancing.className} textColor={'#626060'} fontWeight={'semibold'} fontSize={'lg'} pl={4} pt={2}>
 				{headerClose}
 			</Text>
-			<Text className={dancing.className} textColor={'#626060'} fontWeight={'semibold'} fontSize={'lg'} pl={4} pt={2}>
+			<Text className={dancing.className} textColor={'#626060'} fontWeight={'semibold'} fontSize={'lg'} pl={12} pt={2}>
 				{card}
 			</Text>
-			<Text className={dancing.className} textColor={'#626060'} fontWeight={'semibold'} fontSize={'lg'} pl={4} pt={2}>
+			<Flex px={20} gap={5} flexWrap={'wrap'}>
+				{scills.map(item => (
+					<Link href={`/scill/${item.node.title}`}>
+						<Scills key={item.node.id} item={item.node} />
+					</Link>
+				))}
+			</Flex>
+			<Text className={dancing.className} textColor={'#626060'} fontWeight={'semibold'} fontSize={'lg'} pl={12} pt={2}>
 				{cardClose}
 			</Text>
 		</Box>
