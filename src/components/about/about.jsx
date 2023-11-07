@@ -83,8 +83,8 @@ export default function About(props) {
 			</Text>
 			<Flex px={20} gap={5} flexWrap={'wrap'}>
 				{scills.map(item => (
-					<Link href={`/scill/${item.node.title}`}>
-						<Scills key={item.node.id} item={item.node} />
+					<Link key={item.node.id} href={`/scill/${item.node.title}`}>
+						<Scills item={item.node} />
 					</Link>
 				))}
 			</Flex>
