@@ -7,8 +7,9 @@ import Link from 'next/link';
 const dancing = Dancing_Script({ subsets: ['latin'], weight: '700' }); // Call the font loader and assign it to a constant
 
 export default function About(props) {
-	const { header, headerClose, flex, flexClose, card, cardClose, item, scills } = props;	
+	const { header, headerClose, flex, flexClose, card, cardClose, item, scills } = props;
 	// 09f7d3
+
 	return (
 		<Box py={4}>
 			<Text className={dancing.className} textColor={'#626060'} fontWeight={'semibold'} fontSize={'lg'} pl={4} pt={2}>
@@ -28,7 +29,7 @@ export default function About(props) {
 					<Image w={'full'} height={'full'} objectFit={'cover'} src={item?.photo.url} alt='img' />
 				</Box>
 				<Box w={'full'} pl={6} pr={24}>
-					<Heading>{item.name}</Heading>
+					<Heading>{'sa'}</Heading>
 					<Text pt={4} fontSize={'lg'}>
 						{item.bio}
 					</Text>
