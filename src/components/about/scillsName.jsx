@@ -1,5 +1,6 @@
 import { getScills } from '@/server/incex';
-import { Box, Card, CardBody, Heading, Image, Stack, Text } from '@chakra-ui/react';
+import { Box, Card, CardBody, Flex, Heading, Image, Stack, Text } from '@chakra-ui/react';
+import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 
 export default function ScillsName({ param }) {
@@ -7,7 +8,7 @@ export default function ScillsName({ param }) {
 	useEffect(() => {
 		getScills().then(res => setScillDetail(res));
 	}, []);
-	console.log(param);
+	console.log(scillDetail);
 
 	const scilItem = scillDetail.filter(item => item.node.title === param.name);
 	console.log(scilItem);
@@ -24,6 +25,29 @@ export default function ScillsName({ param }) {
 					</CardBody>
 				</Card>
 			))}
+
+			<Flex flexWrap={'wrap'} gap={4} pt={20}>
+				{scillDetail.map(item => (
+					<Link href={`/scill/${item.node.title}`}>
+						<Box
+							w={'150px'}
+							h={'150px'}
+							borderRadius={5}
+							boxShadow={'lg'}
+							bg={'#09f7d3'}
+							display={'flex'}
+							alignItems={'center'}
+							justifyContent={'center'}
+							flexDirection={'column'}
+							gap={4}
+						>
+							<Image w={'80%'} h={'55%'} objectFit={'cover'} src={item.node.img?.url} alt='' />
+
+							<Heading fontSize={'lg'}>{item.node.title}</Heading>
+						</Box>
+					</Link>
+				))}
+			</Flex>
 		</Box>
 	);
 }

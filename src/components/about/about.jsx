@@ -7,7 +7,7 @@ import Link from 'next/link';
 const dancing = Dancing_Script({ subsets: ['latin'], weight: '700' }); // Call the font loader and assign it to a constant
 
 export default function About(props) {
-	const { header, headerClose, flex, flexClose, card, cardClose, item, scills } = props;
+	const { header, headerClose, flex, flexClose, card, cardClose, item, scills } = props;	
 	// 09f7d3
 	return (
 		<Box py={4}>
@@ -25,7 +25,7 @@ export default function About(props) {
 			</Text>
 			<Flex gap={5} pl={20} py={4}>
 				<Box w={'600px'} h={'450'}>
-					<Image w={'full'} height={'full'} objectFit={'cover'} src={item.photo.url} alt={item.name} />
+					<Image w={'full'} height={'full'} objectFit={'cover'} src={item?.photo.url} alt='img' />
 				</Box>
 				<Box w={'full'} pl={6} pr={24}>
 					<Heading>{item.name}</Heading>

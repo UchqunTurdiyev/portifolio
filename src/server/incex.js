@@ -96,6 +96,29 @@ export const getServices = async () => {
 	return result.servicesConnection.edges;
 };
 
+export const getPortifolio = async () => {
+	const query = gql`
+		query Assets {
+			portifoliosConnection {
+				edges {
+					node {
+						data
+						id
+						portifolio
+						title
+						desc
+						photo {
+							url
+						}
+					}
+				}
+			}
+		}
+	`;
+	const result = await request(graphqlAPI, query);
+	return result.portifoliosConnection.edges;
+};
+
 export const getContent = async () => {
 	const query = gql`
 		query Assets {
