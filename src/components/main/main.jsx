@@ -24,7 +24,6 @@ export default function Main({ hero, about, scills, portifolio }) {
 		card: '<Card>',
 		cardClose: '<Card />',
 	};
-	console.log(portifolio);
 	return (
 		<Box pl={36}>
 			{hero.map(item => (
