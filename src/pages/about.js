@@ -3,8 +3,7 @@ import { About } from '@/components';
 import { withLayout } from '@/layout/layout';
 
 const AboutPage = () => {
-	return;
-	<About />;
+	return <About />;
 };
 
 export default withLayout(AboutPage);
